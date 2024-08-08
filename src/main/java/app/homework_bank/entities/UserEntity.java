@@ -1,5 +1,6 @@
 package app.homework_bank.entities;
 
+import app.homework_bank.enums.UserRole;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,15 +17,27 @@ public class UserEntity {
     private String password;
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
     @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<AccountEntity> accounts;
 
     public UserEntity() {
     }
 
-    public UserEntity(String username, String password, String email, List<AccountEntity> accounts) {
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
+    public UserEntity(String username, String password, String email, UserRole role, List<AccountEntity> accounts) {
         this.username = username;
         this.password = password;
+        this.role = role;
         this.email = email;
         this.accounts = accounts;
     }
@@ -36,6 +49,7 @@ public class UserEntity {
                 ", accounts=" + accounts +
                 ", password='" + password + '\'' +
                 ", username='" + username + '\'' +
+                ", role=" + role +
                 '}';
     }
 

@@ -1,6 +1,6 @@
 package app.homework_bank.entities;
 
-import app.homework_bank.enums.CURRENCY_TYPE;
+import app.homework_bank.enums.CurencyType;
 import jakarta.persistence.*;
 
 import java.sql.Date;
@@ -14,7 +14,7 @@ public class AccountEntity {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private CURRENCY_TYPE currencyType;
+    private CurencyType currencyType;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -30,7 +30,7 @@ public class AccountEntity {
         this.id = id;
     }
 
-    public void setCurrencyType(CURRENCY_TYPE currencyType) {
+    public void setCurrencyType(CurencyType currencyType) {
         this.currencyType = currencyType;
     }
 
@@ -54,7 +54,7 @@ public class AccountEntity {
         return id;
     }
 
-    public CURRENCY_TYPE getCurrencyType() {
+    public CurencyType getCurrencyType() {
         return currencyType;
     }
 
@@ -82,7 +82,7 @@ public class AccountEntity {
                 '}';
     }
 
-    public AccountEntity(CURRENCY_TYPE currencyType, UserEntity user, Long balance, String hashCVV) {
+    public AccountEntity(CurencyType currencyType, UserEntity user, Long balance, String hashCVV) {
         this.currencyType = currencyType;
         this.user = user;
         this.balance = balance;

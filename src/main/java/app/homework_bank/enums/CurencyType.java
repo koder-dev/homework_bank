@@ -1,5 +1,5 @@
 package app.homework_bank.enums;
 
-public enum CURRENCY_TYPE {
+public enum CurencyType {
     USD, UAH, EUR
 }

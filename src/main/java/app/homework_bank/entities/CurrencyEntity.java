@@ -1,6 +1,6 @@
 package app.homework_bank.entities;
 
-import app.homework_bank.enums.CURRENCY_TYPE;
+import app.homework_bank.enums.CurencyType;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,11 +12,11 @@ public class CurrencyEntity {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private CURRENCY_TYPE firstCurrencyType;
+    private CurencyType firstCurrencyType;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private CURRENCY_TYPE secondCurrencyType;
+    private CurencyType secondCurrencyType;
 
     @Column(nullable = false)
     private Double rate;
@@ -24,7 +24,7 @@ public class CurrencyEntity {
     public CurrencyEntity() {
     }
 
-    public CurrencyEntity(CURRENCY_TYPE firstCurrencyType, CURRENCY_TYPE secondCurrencyType, Double rate) {
+    public CurrencyEntity(CurencyType firstCurrencyType, CurencyType secondCurrencyType, Double rate) {
         this.firstCurrencyType = firstCurrencyType;
         this.secondCurrencyType = secondCurrencyType;
         this.rate = rate;
@@ -34,11 +34,11 @@ public class CurrencyEntity {
         this.id = id;
     }
 
-    public void setFirstCurrencyType(CURRENCY_TYPE firstCurrencyType) {
+    public void setFirstCurrencyType(CurencyType firstCurrencyType) {
         this.firstCurrencyType = firstCurrencyType;
     }
 
-    public void setSecondCurrencyType(CURRENCY_TYPE secondCurrencyType) {
+    public void setSecondCurrencyType(CurencyType secondCurrencyType) {
         this.secondCurrencyType = secondCurrencyType;
     }
 
@@ -50,11 +50,11 @@ public class CurrencyEntity {
         return id;
     }
 
-    public CURRENCY_TYPE getFirstCurrencyType() {
+    public CurencyType getFirstCurrencyType() {
         return firstCurrencyType;
     }
 
-    public CURRENCY_TYPE getSecondCurrencyType() {
+    public CurencyType getSecondCurrencyType() {
         return secondCurrencyType;
     }
 
